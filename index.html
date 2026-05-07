@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SOKAR PS4 - Redirect Exploit</title>
+  <title>SOKAR PS4 - Multi Exploit Host</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -16,59 +16,76 @@
       padding: 20px;
     }
     .card {
-      max-width: 650px;
+      max-width: 700px;
       width: 100%;
-      background: rgba(0,0,0,0.85);
-      backdrop-filter: blur(18px);
+      background: rgba(0,0,0,0.88);
+      backdrop-filter: blur(16px);
       border-radius: 56px;
-      padding: 40px 30px;
+      padding: 40px 35px;
       text-align: center;
       border: 2px solid #ffcc55;
+      box-shadow: 0 25px 40px rgba(0,0,0,0.5);
     }
     h1 {
-      font-size: 2.2rem;
+      font-size: 2.5rem;
       background: linear-gradient(135deg, #ffdd99, #ffaa33);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
+      letter-spacing: 2px;
     }
     .phone {
       background: linear-gradient(135deg, #ffcc66, #ffaa33);
       display: inline-block;
-      padding: 12px 30px;
+      padding: 10px 25px;
       border-radius: 60px;
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       font-weight: bold;
       color: #0a0a0a;
-      margin: 20px 0;
+      margin: 15px 0 20px;
+      font-family: monospace;
+    }
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin: 30px 0 25px;
     }
     .exploit-btn {
-      background: #ffcc55;
-      color: #0a0a0a;
-      border: none;
-      padding: 18px 40px;
-      font-size: 1.5rem;
+      background: #1f2a1f;
+      border: 2px solid #ffcc55;
+      color: #ffcc55;
+      padding: 16px 20px;
+      font-size: 1.3rem;
       font-weight: bold;
       border-radius: 60px;
       cursor: pointer;
-      margin: 15px 0;
+      transition: all 0.2s ease;
+      text-align: center;
       width: 100%;
-      transition: 0.2s;
     }
     .exploit-btn:hover {
-      transform: scale(1.02);
-      background: #ffdd77;
+      background: #ffcc55;
+      color: #0a0a0a;
+      transform: scale(1.01);
+      box-shadow: 0 0 15px #ffaa33;
     }
-    .note {
-      color: #aaa;
-      font-size: 0.7rem;
-      margin-top: 25px;
+    .warning-box {
+      background: #aa331122;
+      border: 1px solid #ffaa55;
+      border-radius: 20px;
+      padding: 12px;
+      margin: 20px 0;
+      font-size: 0.8rem;
+      color: #ffcc88;
     }
     footer {
-      margin-top: 25px;
+      margin-top: 20px;
       font-size: 0.7rem;
       color: #666;
+      border-top: 1px solid #333;
+      padding-top: 18px;
     }
   </style>
 </head>
@@ -76,43 +93,50 @@
 <div class="card">
   <h1>⚡ SOKAR PS4 ⚡</h1>
   <div class="phone">📞 01000291852</div>
-  <p style="margin-bottom: 15px; color: #ffcc66;">اضغط الزر لتفعيل التعديل على PS4</p>
   
-  <button class="exploit-btn" id="exploitBtn">🔥 تشغيل GoldHEN 🔥</button>
-  
-  <div class="note">
-    ⚠️ مخصص لـ PS4 Firmware 9.00 و 11.00 فقط<br>
-    بعد الضغط، انتظر 30 ثانية عشان التعديل يشتغل
+  <div class="warning-box">
+    ✅ جهاز PS4 تم اكتشافه - اختر أي رابط من الثلاثة
   </div>
-  <footer>⚔️ SOKAR HOST | Exploit Source: chefkeks.online</footer>
+  
+  <div class="btn-group">
+    <button class="exploit-btn" data-url="https://chefkeks.online/PS4/900/">1️⃣ رابط Chefkeks (الأساسي)</button>
+    <button class="exploit-btn" data-url="https://karoooo.com/900/">2️⃣ رابط Karoooo (البديل)</button>
+    <button class="exploit-btn" data-url="https://karo218.ir/900/">3️⃣ رابط Karo218 (البديل الثاني)</button>
+  </div>
+  
+  <div class="warning-box" id="pcWarning">
+    ⚠️ للأجهزة العادية: الأزرار مش هتشتغل هنا. لكن لو ظهرتلك رسالة "لا يمكن الاتصال بالخادم" على PS4، جرب باقي الأزرار.
+  </div>
+  
+  <footer>⚔️ SOKAR HOST | روابط متعددة لضمان التشغيل | افتح على PS4 Firmware 9.00/11.00</footer>
 </div>
 
 <script>
-  const exploitBtn = document.getElementById('exploitBtn');
-  
-  // كشف الجهاز
+  // فحص الجهاز (لإظهار رسالة مناسبة)
   const isPS4 = navigator.userAgent.includes('PlayStation') || 
                 navigator.userAgent.includes('PS4') || 
                 window.location.href.includes('ps4');
   
+  const pcWarning = document.getElementById('pcWarning');
   if (!isPS4) {
-    exploitBtn.innerText = '⚠️ افتح على PS4 عشان يشتغل';
-    exploitBtn.style.background = '#555';
-    exploitBtn.style.cursor = 'not-allowed';
-    exploitBtn.disabled = true;
+    pcWarning.innerHTML = '⚠️ أنت تفتح الموقع من كمبيوتر أو موبايل. الأزرار مش هتشتغل هنا. افتح نفس الرابط على متصفح PS4 عشان التعديل يشتغل.';
+    pcWarning.style.background = '#331100aa';
+    pcWarning.style.borderColor = '#ff8844';
+  } else {
+    pcWarning.innerHTML = '🎮 PS4 جاهز - اضغط على أي زر. لو جهازك Firmware 11.00، جرب الرابط التاني أو التالت';
+    pcWarning.style.background = '#00aa3311';
+    pcWarning.style.borderColor = '#88ffaa';
   }
   
-  exploitBtn.addEventListener('click', () => {
-    if (!isPS4) return;
-    
-    exploitBtn.innerText = '⏳ جاري تشغيل التعديل...';
-    exploitBtn.disabled = true;
-    
-    // استخدام موقع chefkeks (شغال حالياً على 9.00 و 11.00)
-    window.location.href = 'https://chefkeks.online/PS4/900/';
-    
-    // لو الموقع الأول مش شغال، جرب ده:
-    // window.location.href = 'https://karoooo.com/900/';
+  // ربط الأزرار
+  document.querySelectorAll('.exploit-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (!isPS4) return;
+      const url = btn.getAttribute('data-url');
+      btn.innerText = '⏳ جاري التحويل...';
+      btn.style.opacity = '0.7';
+      window.location.href = url;
+    });
   });
 </script>
 </body>
