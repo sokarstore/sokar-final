@@ -2,30 +2,37 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SOKAR PS4 | Karo Host 11.00</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>SOKAR HOST | PS4 11.00</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      background: radial-gradient(circle at 20% 20%, #0a0f1a, #010101);
-      font-family: 'Segoe UI', system-ui;
+      min-height: 100vh;
+      background: radial-gradient(circle at 30% 10%, #0a0f1a, #010101);
+      font-family: 'Segoe UI', system-ui, sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 100vh;
       padding: 20px;
     }
+
     .card {
       max-width: 550px;
       width: 100%;
-      background: rgba(0,0,0,0.88);
-      backdrop-filter: blur(16px);
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(18px);
       border-radius: 56px;
       padding: 40px 30px;
       text-align: center;
       border: 2px solid #ffcc55;
-      box-shadow: 0 25px 40px rgba(0,0,0,0.6);
+      box-shadow: 0 25px 45px rgba(0, 0, 0, 0.5);
     }
+
     h1 {
       font-size: 2.5rem;
       background: linear-gradient(135deg, #ffdd99, #ffaa33);
@@ -34,91 +41,104 @@
       color: transparent;
       margin-bottom: 10px;
     }
+
     .phone {
       background: linear-gradient(135deg, #ffcc66, #ffaa33);
       display: inline-block;
       padding: 10px 25px;
       border-radius: 60px;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       font-weight: bold;
       color: #0a0a0a;
       margin: 15px 0;
+      font-family: monospace;
     }
+
     .exploit-btn {
       background: #ffcc55;
       color: #0a0a0a;
       border: none;
-      padding: 18px 30px;
+      padding: 18px 20px;
       font-size: 1.6rem;
       font-weight: bold;
       border-radius: 60px;
       cursor: pointer;
-      margin: 25px 0;
+      margin: 20px 0;
       width: 100%;
       transition: 0.2s;
     }
+
     .exploit-btn:hover {
       transform: scale(1.02);
       background: #ffdd77;
     }
-    .info {
+
+    .info-box {
       background: #00000066;
       border-radius: 20px;
       padding: 12px;
       margin: 15px 0;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       color: #ffcc88;
     }
+
     footer {
-      margin-top: 20px;
+      margin-top: 25px;
       font-size: 0.7rem;
-      color: #666;
+      color: #777;
+      border-top: 1px solid #333;
+      padding-top: 18px;
     }
   </style>
 </head>
 <body>
+
 <div class="card">
   <h1>⚡ SOKAR PS4 ⚡</h1>
   <div class="phone">📞 01000291852</div>
-  
-  <div class="info">
+
+  <div class="info-box">
     🎮 Firmware 11.00 | تعديل من غير فلاشة
   </div>
-  
+
   <button class="exploit-btn" id="exploitBtn">🔥 تشغيل Karo 11.00 🔥</button>
-  
-  <div class="info">
-    ✅ بعد الضغط، هتتحول لـ Karo Host 11.00<br>
-    ✅ استنى 20 ثانية – الجهاز هيتعدل مباشرة
+
+  <div class="info-box">
+    ✅ بعد الضغط هتتحول مباشرة لـ Karo Host<br>
+    ✅ الاستغلال هيشتغل خلال 20 ثانية
   </div>
-  
-  <footer>⚔️ SOKAR HOST | Power by Karo218.ir | Thanks: TheFlow, Al-Azif, Karo</footer>
+
+  <footer>
+    ⚔️ SOKAR HOST | مدعوم من Karo218.ir<br>
+    شكر خاص: TheFlow, Al-Azif, Karo
+  </footer>
 </div>
 
 <script>
   const exploitBtn = document.getElementById('exploitBtn');
-  
-  // كشف الجهاز
+
+  // الكشف عن جهاز PS4
   const isPS4 = navigator.userAgent.includes('PlayStation') || 
                 navigator.userAgent.includes('PS4') || 
                 window.location.href.includes('ps4');
-  
+
   if (!isPS4) {
     exploitBtn.innerText = '⚠️ افتح على PS4 عشان يشتغل';
     exploitBtn.style.background = '#555';
     exploitBtn.style.cursor = 'not-allowed';
     exploitBtn.disabled = true;
   }
-  
+
   exploitBtn.addEventListener('click', () => {
     if (!isPS4) return;
-    
+
     exploitBtn.innerText = '⏳ جاري التحويل إلى Karo...';
     exploitBtn.disabled = true;
-    
-    // الرابط المباشر لـ Karo 11.00 (اللي انت عارفه وشغال)
+
+    // الرابط اللي أنت متأكد إنه شغال على 11.00
     window.location.href = 'https://karo218.ir/1100/';
   });
 </script>
+
 </body>
 </html>
