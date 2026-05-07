@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>SOKAR HOST | PS4 11.00</title>
+  <title>SOKAR HOST | PS4 11.00 Solution</title>
   <style>
     * {
       margin: 0;
@@ -22,15 +22,15 @@
     }
 
     .card {
-      max-width: 550px;
+      max-width: 650px;
       width: 100%;
-      background: rgba(0, 0, 0, 0.88);
+      background: rgba(0, 0, 0, 0.92);
       backdrop-filter: blur(18px);
       border-radius: 56px;
-      padding: 40px 30px;
+      padding: 35px 30px;
       text-align: center;
       border: 2px solid #ffcc55;
-      box-shadow: 0 25px 45px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 25px 45px rgba(0, 0, 0, 0.6);
     }
 
     h1 {
@@ -54,32 +54,66 @@
       font-family: monospace;
     }
 
-    .exploit-btn {
-      background: #ffcc55;
-      color: #0a0a0a;
-      border: none;
-      padding: 18px 20px;
-      font-size: 1.6rem;
-      font-weight: bold;
-      border-radius: 60px;
-      cursor: pointer;
+    .solution-box {
+      background: #1a2a1aaa;
+      border: 1px solid #88ff88;
+      border-radius: 28px;
+      padding: 20px;
       margin: 20px 0;
-      width: 100%;
-      transition: 0.2s;
+      text-align: right;
     }
 
-    .exploit-btn:hover {
+    .solution-box h3 {
+      color: #88ff88;
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+    }
+
+    .solution-box p {
+      color: #ddd;
+      font-size: 0.9rem;
+      margin: 10px 0;
+      line-height: 1.5;
+    }
+
+    .solution-box code {
+      background: #000000aa;
+      padding: 8px 12px;
+      border-radius: 16px;
+      display: inline-block;
+      margin: 5px 0;
+      font-family: monospace;
+      color: #ffcc66;
+    }
+
+    .btn-link {
+      background: #ffcc55;
+      color: #0a0a0a;
+      text-decoration: none;
+      padding: 14px 25px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border-radius: 60px;
+      display: inline-block;
+      margin: 15px 0;
+      transition: 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-link:hover {
       transform: scale(1.02);
       background: #ffdd77;
     }
 
-    .info-box {
-      background: #00000066;
+    .warning-box {
+      background: #331100aa;
+      border: 1px solid #ff8844;
       border-radius: 20px;
       padding: 12px;
       margin: 15px 0;
       font-size: 0.85rem;
-      color: #ffcc88;
+      color: #ffaa88;
     }
 
     footer {
@@ -89,6 +123,11 @@
       border-top: 1px solid #333;
       padding-top: 18px;
     }
+
+    .step {
+      margin: 15px 0;
+      padding-right: 20px;
+    }
   </style>
 </head>
 <body>
@@ -97,47 +136,75 @@
   <h1>⚡ SOKAR PS4 ⚡</h1>
   <div class="phone">📞 01000291852</div>
 
-  <div class="info-box">
-    🎮 Firmware 11.00 | تعديل من غير فلاشة
+  <div class="warning-box">
+    ⚠️ Firmware 11.00: BinLoader لا يعمل بشكل صحيح في المتصفح
   </div>
 
-  <button class="exploit-btn" id="exploitBtn">🔥 تشغيل Karo 11.00 🔥</button>
+  <div class="solution-box">
+    <h3>🔧 الحل المجرب والموثق لـ 11.00</h3>
+    
+    <div class="step">
+      <strong>📥 1. تحميل Payload Guest</strong><br>
+      <code>https://github.com/Al-Azif/ps4-payload-guest</code>
+    </div>
 
-  <div class="info-box">
-    ✅ بعد الضغط هتتحول مباشرة لـ Karo Host<br>
-    ✅ الاستغلال هيشتغل خلال 20 ثانية
+    <div class="step">
+      <strong>💿 2. تثبيت التطبيق</strong><br>
+      انقل ملف <code>.pkg</code> إلى USB ← ثبّته عبر GoldHEN (Package Installer)
+    </div>
+
+    <div class="step">
+      <strong>🗂️ 3. تجهيز USB للبايلودات</strong><br>
+      USB بصيغة <code>exFAT</code> ← مجلد باسم <code>payloads</code> ← ضع ملفات <code>.bin</code> داخله
+    </div>
+
+    <div class="step">
+      <strong>⚙️ 4. تشغيل BinLoader Server في GoldHEN</strong><br>
+      من إعدادات GoldHEN بعد تشغيل التعديل
+    </div>
+
+    <div class="step">
+      <strong>🚀 5. فتح Payload Guest</strong><br>
+      من قائمة PS4 ← اختر البايلود المطلوب
+    </div>
+  </div>
+
+  <div class="solution-box">
+    <h3>🖥️ طريقة بديلة: PPPwn Loader (من الكمبيوتر)</h3>
+    
+    <div class="step">
+      <strong>تحميل PPPwn Loader v1.5</strong> ← يدعم 11.00<br>
+      توصيل PS4 بالكمبيوتر عبر كابل إيثرنت ← تشغيل البرنامج واختيار Firmware 11.00
+    </div>
+    
+    <a href="https://github.com/LoganBres/PPPwn-Loader/releases" target="_blank" class="btn-link">⬇️ تحميل PPPwn Loader</a>
+  </div>
+
+  <div class="warning-box">
+    🎮 <strong>رابط تعديل GoldHEN المبدئي (اللي بيشغل BinLoader)</strong><br>
+    <code>https://karo218.ir/1100/</code><br>
+    <br>
+    ⚠️ هذا الرابط يشغل التعديل الأساسي فقط. لتشغيل البايلودات الفردية، استخدم Payload Guest كما هو موضح أعلاه.
   </div>
 
   <footer>
-    ⚔️ SOKAR HOST | مدعوم من Karo218.ir<br>
-    شكر خاص: TheFlow, Al-Azif, Karo
+    ⚔️ SOKAR HOST | الحل المعتمد لـ Firmware 11.00<br>
+    شكر خاص: Al-Azif, TheFlow, Karo
   </footer>
 </div>
 
 <script>
-  const exploitBtn = document.getElementById('exploitBtn');
-
-  // الكشف عن جهاز PS4
+  // كشف جهاز PS4
   const isPS4 = navigator.userAgent.includes('PlayStation') || 
                 navigator.userAgent.includes('PS4') || 
                 window.location.href.includes('ps4');
 
   if (!isPS4) {
-    exploitBtn.innerText = '⚠️ افتح على PS4 عشان يشتغل';
-    exploitBtn.style.background = '#555';
-    exploitBtn.style.cursor = 'not-allowed';
-    exploitBtn.disabled = true;
+    const warningBox = document.querySelector('.warning-box');
+    if (warningBox) {
+      warningBox.innerHTML = '⚠️ أنت تفتح الصفحة من كمبيوتر أو موبايل. الحلول أعلاه مخصصة لـ PS4.';
+    }
   }
-
-  exploitBtn.addEventListener('click', () => {
-    if (!isPS4) return;
-
-    exploitBtn.innerText = '⏳ جاري التحويل إلى Karo...';
-    exploitBtn.disabled = true;
-
-    // الرابط اللي أنت متأكد إنه شغال على 11.00
-    window.location.href = 'https://karo218.ir/1100/';
-  });
 </script>
 
 </body>
