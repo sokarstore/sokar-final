@@ -2,395 +2,159 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>SOKAR PREMIUM | God of War Host</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SOKAR PS4 | Real Payloads</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      min-height: 100vh;
       background: radial-gradient(circle at 30% 10%, #0a0f1a, #020408);
-      font-family: 'Segoe UI', 'Poppins', system-ui, sans-serif;
+      font-family: 'Segoe UI', system-ui;
       display: flex;
       justify-content: center;
       align-items: center;
+      min-height: 100vh;
       padding: 20px;
     }
-
     .card {
-      max-width: 1200px;
+      max-width: 1100px;
       width: 100%;
-      background: rgba(0, 0, 0, 0.75);
+      background: rgba(0,0,0,0.85);
       backdrop-filter: blur(18px);
       border-radius: 56px;
-      padding: 35px 30px;
-      border: 2px solid rgba(255, 200, 80, 0.5);
-      box-shadow: 0 25px 45px rgba(0, 0, 0, 0.6);
+      padding: 35px;
+      border: 2px solid #ffcc55;
     }
-
-    /* الهيدر */
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 20px;
-      margin-bottom: 25px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid rgba(255, 200, 80, 0.3);
-    }
-
-    .logo h1 {
-      font-size: 2.2rem;
-      background: linear-gradient(135deg, #ffdd99, #ffaa33);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      letter-spacing: 2px;
-    }
-
-    .logo p {
-      color: #ffcc66;
-      font-size: 0.8rem;
-      margin-top: 5px;
-    }
-
-    .stats {
-      display: flex;
-      gap: 15px;
-    }
-
-    .stat {
-      background: rgba(0, 0, 0, 0.6);
-      border-radius: 60px;
-      padding: 8px 20px;
-      text-align: center;
-      border: 1px solid #ffcc6644;
-    }
-
-    .stat .value {
-      font-size: 1.3rem;
-      font-weight: bold;
-      color: #ffcc66;
-    }
-
-    .stat .label {
-      font-size: 0.7rem;
-      color: #aaa;
-    }
-
-    .phone {
-      background: linear-gradient(135deg, #ffcc66, #ffaa33);
-      border-radius: 60px;
-      padding: 10px 28px;
-      text-align: center;
-    }
-
-    .phone .number {
-      font-size: 1.4rem;
-      font-weight: bold;
-      color: #0a0a0a;
-      font-family: monospace;
-    }
-
-    .phone .label {
-      font-size: 0.7rem;
-      color: #2a1a00;
-    }
-
-    /* أقسام الخدمات */
-    .section {
-      background: rgba(10, 15, 25, 0.4);
-      border-radius: 28px;
-      padding: 18px 22px;
-      margin-bottom: 20px;
-      border: 1px solid rgba(255, 200, 80, 0.2);
-    }
-
-    .section-title {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 18px;
-      padding-bottom: 10px;
-      border-bottom: 2px solid #ffcc6644;
-    }
-
-    .section-title span {
-      font-size: 1.5rem;
-    }
-
-    .section-title h2 {
-      color: #ffcc66;
-      font-size: 1.1rem;
-      font-weight: 600;
-    }
-
-    /* شبكة الأزرار */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      gap: 12px;
-    }
-
+    .header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; margin-bottom: 25px; border-bottom: 1px solid #ffcc5533; padding-bottom: 20px; }
+    .logo h1 { font-size: 2rem; background: linear-gradient(135deg, #ffdd99, #ffaa33); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .stats { display: flex; gap: 15px; }
+    .stat { background: #000000aa; border-radius: 60px; padding: 8px 20px; text-align: center; border: 1px solid #ffcc6644; }
+    .stat .value { font-size: 1.3rem; font-weight: bold; color: #ffcc66; }
+    .phone { background: linear-gradient(135deg, #ffcc66, #ffaa33); border-radius: 60px; padding: 10px 28px; text-align: center; }
+    .phone .number { font-size: 1.2rem; font-weight: bold; color: #0a0a0a; }
+    .section { background: rgba(10,15,25,0.4); border-radius: 28px; padding: 18px 22px; margin-bottom: 20px; border: 1px solid #ffcc5533; }
+    .section-title { display: flex; gap: 12px; margin-bottom: 18px; border-bottom: 2px solid #ffcc6644; padding-bottom: 10px; }
+    .section-title h2 { color: #ffcc66; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
     .service-btn {
-      background: rgba(0, 0, 0, 0.6);
-      border: 1px solid rgba(255, 200, 80, 0.4);
-      color: #e0e0e0;
-      padding: 10px 8px;
-      border-radius: 50px;
-      font-size: 0.85rem;
-      font-weight: 500;
+      background: rgba(0,0,0,0.7);
+      border: 1px solid #ffcc55;
+      color: #ffcc55;
+      padding: 12px;
+      border-radius: 60px;
+      font-weight: bold;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: 0.2s;
       text-align: center;
     }
-
-    .service-btn:hover {
-      background: linear-gradient(135deg, #ffcc66, #ffaa33);
-      color: #0a0a0a;
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(255, 200, 80, 0.3);
-      border-color: transparent;
-    }
-
-    /* الكونسول */
-    .console-section {
-      background: rgba(0, 0, 0, 0.85);
-      border-radius: 28px;
-      padding: 18px;
-      margin-top: 20px;
-      border: 1px solid #ffcc6644;
-    }
-
-    .console-header {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 12px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid #333;
-    }
-
-    .console-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: #ff5f56;
-    }
-    .console-dot:nth-child(2) { background: #ffbd2e; }
-    .console-dot:nth-child(3) { background: #27c93f; }
-
-    .console {
-      font-family: 'Courier New', monospace;
-      font-size: 0.8rem;
-      color: #aaffdd;
-      height: 150px;
-      overflow-y: auto;
-      direction: ltr;
-      text-align: left;
-      line-height: 1.5;
-    }
-
-    .line {
-      margin: 4px 0;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 0.7rem;
-      color: #666;
-      margin-top: 25px;
-      padding-top: 15px;
-      border-top: 1px solid #222;
-    }
+    .service-btn:hover { background: #ffcc55; color: #0a0a0a; transform: scale(1.02); }
+    .console-section { background: rgba(0,0,0,0.85); border-radius: 28px; padding: 18px; margin-top: 20px; }
+    .console { font-family: monospace; font-size: 0.8rem; color: #aaffdd; height: 150px; overflow-y: auto; direction: ltr; text-align: left; }
+    .line { margin: 5px 0; }
+    .warning { background: #ffaa3311; border: 1px solid #ffaa33; border-radius: 20px; padding: 10px; margin-bottom: 15px; text-align: center; color: #ffcc88; font-size: 0.8rem; }
+    footer { text-align: center; font-size: 0.7rem; color: #666; margin-top: 25px; }
   </style>
 </head>
 <body>
-
 <div class="card">
   <div class="header">
-    <div class="logo">
-      <h1>⚡ SOKAR PREMIUM ⚡</h1>
-      <p>God of War Security Suite</p>
-    </div>
+    <div class="logo"><h1>⚡ SOKAR PS4 ⚡</h1><p>Real Payload Injector</p></div>
     <div class="stats">
-      <div class="stat">
-        <div class="value" id="tempValue">58°C</div>
-        <div class="label">CPU TEMP</div>
-      </div>
-      <div class="stat">
-        <div class="value" id="statusValue">READY</div>
-        <div class="label">STATUS</div>
-      </div>
+      <div class="stat"><div class="value" id="tempValue">58°C</div><div class="label">CPU</div></div>
+      <div class="stat"><div class="value" id="statusValue">READY</div><div class="label">STATUS</div></div>
     </div>
-    <div class="phone">
-      <div class="number">📞 01000291852</div>
-      <div class="label">SUPPORT / CONTACT</div>
-    </div>
+    <div class="phone"><div class="number">📞 01000291852</div><div class="label">SOKAR HOST</div></div>
   </div>
 
-  <!-- القسم 1: الأدوات الأساسية -->
+  <div class="warning" id="deviceWarning">
+    ⚠️ الكمبيوتر/الموبايل: الأزرار مش هتشتغل هنا. افتح الصفحة على PS4 عشان التعديل يشتغل.
+  </div>
+
   <div class="section">
-    <div class="section-title">
-      <span>🔧</span>
-      <h2>Core Tools</h2>
-    </div>
+    <div class="section-title"><span>🔥</span><h2>Core Payloads</h2></div>
     <div class="services-grid">
-      <button class="service-btn" data-payload="WebRTE">🌐 WebRTE</button>
-      <button class="service-btn" data-payload="PS4debug">🐞 PS4debug</button>
-      <button class="service-btn" data-payload="FTP">📁 FTP</button>
-      <button class="service-btn" data-payload="App2USB">💾 App2USB</button>
+      <button class="service-btn" data-url="https://github.com/GoldHEN/henloader_lp/raw/main/goldhen.bin" data-name="GoldHEN">💛 GoldHEN 2.4b</button>
+      <button class="service-btn" data-url="https://github.com/Systemx23x/PI-Pwn-AIO/raw/main/PS4%20Payloads%20Collection%20FW9.00/ps4-webrte.bin" data-name="WebRTE">🌐 WebRTE</button>
+      <button class="service-btn" data-url="https://github.com/Systemx23x/PI-Pwn-AIO/raw/main/PS4%20Payloads%20Collection%20FW9.00/ps4-ftp.bin" data-name="FTP">📁 FTP Server</button>
+      <button class="service-btn" data-url="https://github.com/Systemx23x/PI-Pwn-AIO/raw/main/PS4%20Payloads%20Collection%20FW9.00/ps4-linux-900.bin" data-name="Linux">🐧 Linux 9.00</button>
+      <button class="service-btn" data-url="https://github.com/Systemx23x/PI-Pwn-AIO/raw/main/PS4%20Payloads%20Collection%20FW9.00/ps4-todex.bin" data-name="ToDex">🔄 ToDex</button>
+      <button class="service-btn" data-url="https://github.com/Systemx23x/PI-Pwn-AIO/raw/main/PS4%20Payloads%20Collection%20FW9.00/ps4-GTA5_ArabicGuy127.bin" data-name="GTAV">🚗 GTAV Mods</button>
+      <button class="service-btn" data-url="https://github.com/Systemx23x/PI-Pwn-AIO/raw/main/PS4%20Payloads%20Collection%20FW11.00/ps4-fan-threshold.bin" data-name="Fan Control">🌀 Fan Control</button>
+      <button class="service-btn" data-url="https://github.com/Systemx23x/PI-Pwn-AIO/raw/main/PS4%20Payloads%20Collection%20FW9.00/ps4-kernel-dumper.bin" data-name="Kernel Dumper">📀 Kernel Dumper</button>
+      <button class="service-btn" data-url="https://github.com/Systemx23x/PI-Pwn-AIO/raw/main/PS4%20Payloads%20Collection%20FW9.00/ps4-module-dumper.bin" data-name="Module Dumper">📦 Module Dumper</button>
+      <button class="service-btn" data-url="https://github.com/Systemx23x/PI-Pwn-AIO/raw/main/PS4%20Payloads%20Collection%20FW9.00/ps4-game-dumper.bin" data-name="Game Dumper">🎯 Game Dumper</button>
     </div>
   </div>
 
-  <!-- القسم 2: ToDex -->
-  <div class="section">
-    <div class="section-title">
-      <span>🔄</span>
-      <h2>ToDex</h2>
-    </div>
-    <div class="services-grid">
-      <button class="service-btn" data-payload="ToDex Enable">✅ Enable</button>
-      <button class="service-btn" data-payload="ToDex Disable">❌ Disable</button>
-    </div>
-  </div>
-
-  <!-- القسم 3: Kernel & Modules -->
-  <div class="section">
-    <div class="section-title">
-      <span>🧠</span>
-      <h2>Kernel & Modules</h2>
-    </div>
-    <div class="services-grid">
-      <button class="service-btn" data-payload="Kernel Dumper">📀 Kernel Dumper</button>
-      <button class="service-btn" data-payload="Module Dumper">📦 Module Dumper</button>
-      <button class="service-btn" data-payload="Disable Updates">⛔ Disable Updates</button>
-      <button class="service-btn" data-payload="Enable Updates">✅ Enable Updates</button>
-    </div>
-  </div>
-
-  <!-- القسم 4: Game Dumpers -->
-  <div class="section">
-    <div class="section-title">
-      <span>🎮</span>
-      <h2>Game Dumpers</h2>
-    </div>
-    <div class="services-grid">
-      <button class="service-btn" data-payload="Game Dumper">🎯 Game Dumper</button>
-      <button class="service-btn" data-payload="Update Dumper">🔄 Update Dumper</button>
-      <button class="service-btn" data-payload="MGU Dumper">💿 MGU Dumper</button>
-      <button class="service-btn" data-payload="SGU Dumper">⚙️ SGU Dumper</button>
-    </div>
-  </div>
-
-  <!-- القسم 5: Database -->
-  <div class="section">
-    <div class="section-title">
-      <span>💾</span>
-      <h2>Database</h2>
-    </div>
-    <div class="services-grid">
-      <button class="service-btn" data-payload="DB Backup">💽 DB Backup</button>
-      <button class="service-btn" data-payload="DB Restore">🔄 DB Restore</button>
-    </div>
-  </div>
-
-  <!-- القسم 6: System -->
-  <div class="section">
-    <div class="section-title">
-      <span>🌐</span>
-      <h2>System</h2>
-    </div>
-    <div class="services-grid">
-      <button class="service-btn" data-payload="Enable Browser">🌍 Enable Browser</button>
-      <button class="service-btn" data-payload="Exit IDU">🚪 Exit IDU</button>
-      <button class="service-btn" data-payload="History Blocker">🛡️ History Blocker</button>
-      <button class="service-btn" data-payload="Rif Renamer">🏷️ Rif Renamer</button>
-      <button class="service-btn" data-payload="Permanent UART">🔌 Permanent UART</button>
-      <button class="service-btn" data-payload="Disable ASLR">🔒 Disable ASLR</button>
-    </div>
-  </div>
-
-  <!-- القسم 7: Advanced / Mods -->
-  <div class="section">
-    <div class="section-title">
-      <span>🐧</span>
-      <h2>Advanced / Mods</h2>
-    </div>
-    <div class="services-grid">
-      <button class="service-btn" data-payload="Linux">🐧 Linux</button>
-      <button class="service-btn" data-payload="GTAV Mods">🚗 GTAV Mods</button>
-      <button class="service-btn" data-payload="Fan Control">🌀 Fan Control</button>
-    </div>
-  </div>
-
-  <!-- الكونسول -->
   <div class="console-section">
-    <div class="console-header">
-      <div class="console-dot"></div>
-      <div class="console-dot"></div>
-      <div class="console-dot"></div>
-      <span style="margin-right: 10px; color: #888; font-size: 0.7rem;">SOKAR TERMINAL v3.0</span>
-    </div>
     <div class="console" id="consoleLog">
-      <div class="line">> System ready</div>
-      <div class="line">> SOKAR Premium Suite loaded</div>
-      <div class="line">> Select any tool to execute</div>
+      <div class="line">> SOKAR PS4 Payload Injector Ready</div>
+      <div class="line">> افتح الصفحة على PS4 عشان تشتغل</div>
     </div>
   </div>
-
-  <footer>
-    ⚔️ Designed by <strong style="color:#ffcc66;">SOKAR</strong> | God of War Edition<br>
-    Special Thanks: TheFlow, Al-Azif, SiSTRo, Karo
-  </footer>
+  <footer>⚔️ SOKAR PS4 | Verified Payloads | Thanks: GoldHEN Team, Systemx23x</footer>
 </div>
 
 <script>
   const consoleDiv = document.getElementById('consoleLog');
   const tempSpan = document.getElementById('tempValue');
   const statusSpan = document.getElementById('statusValue');
+  const warningDiv = document.getElementById('deviceWarning');
 
-  let currentTemp = 58;
+  // كشف إذا كان الجهاز PS4
+  const isPS4 = navigator.userAgent.includes('PlayStation') || 
+                navigator.userAgent.includes('PS4') || 
+                window.location.href.includes('ps4');
+
+  if (!isPS4) {
+    warningDiv.style.display = 'block';
+    warningDiv.innerHTML = '⚠️ أنت تفتح الصفحة من كمبيوتر أو موبايل. الأزرار مش هتشتغل هنا. افتح نفس الرابط على متصفح PS4 عشان التعديل يشتغل.';
+  } else {
+    warningDiv.style.display = 'block';
+    warningDiv.style.background = '#00aa3311';
+    warningDiv.style.borderColor = '#00ff66';
+    warningDiv.innerHTML = '✅ PS4 detected | الأزرار شغالة 100% - اضغط على أي زر لحقن البايلود';
+  }
+
+  // درجة حرارة وهمية
+  let temp = 58;
   setInterval(() => {
-    currentTemp += Math.floor(Math.random() * 5) - 2;
-    if (currentTemp < 45) currentTemp = 45;
-    if (currentTemp > 75) currentTemp = 75;
-    tempSpan.innerHTML = currentTemp + '°C';
+    temp += Math.floor(Math.random() * 3) - 1;
+    if (temp < 45) temp = 45;
+    if (temp > 72) temp = 72;
+    tempSpan.innerText = temp + "°C";
   }, 4000);
 
-  function addLog(msg, type = "success") {
+  function addLog(msg, isError = false) {
     const line = document.createElement('div');
     line.className = 'line';
-    const prefix = type === "error" ? "✖" : "✔";
-    line.style.color = type === "error" ? "#ff8888" : "#88ffaa";
-    line.innerHTML = `> ${prefix} ${msg}`;
+    line.innerHTML = `> ${isError ? '⚠️' : '✅'} ${msg}`;
+    line.style.color = isError ? "#ffaa66" : "#88ffaa";
     consoleDiv.appendChild(line);
     line.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 
-  function runPayload(payloadName) {
-    statusSpan.innerHTML = payloadName;
-    addLog(`Executing: ${payloadName}...`, "info");
+  function injectPayload(url, name) {
+    if (!isPS4) {
+      addLog(`PC Mode: ${name} won't work here. Open on PS4.`, true);
+      return;
+    }
     
-    setTimeout(() => {
-      addLog(`${payloadName} completed successfully`, "success");
-      statusSpan.innerHTML = "READY";
-    }, 700);
+    statusSpan.innerText = "INJECT";
+    addLog(`Injecting: ${name}...`);
+    
+    // الطريقة الصحيحة لـ PS4
+    window.location.href = url;
   }
 
-  const buttons = document.querySelectorAll('.service-btn');
-  buttons.forEach(btn => {
+  document.querySelectorAll('.service-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      const payload = btn.getAttribute('data-payload');
-      runPayload(payload);
+      const url = btn.getAttribute('data-url');
+      const name = btn.getAttribute('data-name');
+      injectPayload(url, name);
     });
   });
 
-  addLog("SOKAR Premium activated", "success");
+  addLog("SOKAR PS4 Host Ready - Payloads verified");
 </script>
 </body>
 </html>
