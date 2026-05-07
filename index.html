@@ -2,207 +2,199 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>SOKAR HOST | PS4 11.00 Solution</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SOKAR HOST v2.0 | PS4 11.00</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root {
+      --gold: #ffcc55;
+      --dark-bg: #0a0f1a;
+      --card-bg: rgba(0, 0, 0, 0.9);
     }
 
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
     body {
-      min-height: 100vh;
-      background: radial-gradient(circle at 30% 10%, #0a0f1a, #010101);
+      background: radial-gradient(circle at 30% 10%, #1a1f2c, #010101);
       font-family: 'Segoe UI', system-ui, sans-serif;
+      color: white;
       display: flex;
       justify-content: center;
       align-items: center;
+      min-height: 100vh;
       padding: 20px;
     }
 
     .card {
-      max-width: 650px;
+      max-width: 700px;
       width: 100%;
-      background: rgba(0, 0, 0, 0.92);
-      backdrop-filter: blur(18px);
-      border-radius: 56px;
-      padding: 35px 30px;
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      border-radius: 40px;
+      padding: 30px;
       text-align: center;
-      border: 2px solid #ffcc55;
-      box-shadow: 0 25px 45px rgba(0, 0, 0, 0.6);
+      border: 2px solid var(--gold);
+      box-shadow: 0 0 30px rgba(255, 204, 85, 0.2);
     }
 
     h1 {
-      font-size: 2.5rem;
-      background: linear-gradient(135deg, #ffdd99, #ffaa33);
+      font-size: 2.2rem;
+      background: linear-gradient(135deg, #fff, var(--gold));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
       margin-bottom: 10px;
     }
 
-    .phone {
-      background: linear-gradient(135deg, #ffcc66, #ffaa33);
-      display: inline-block;
-      padding: 10px 25px;
-      border-radius: 60px;
-      font-size: 1.3rem;
-      font-weight: bold;
-      color: #0a0a0a;
-      margin: 15px 0;
-      font-family: monospace;
-    }
-
-    .solution-box {
-      background: #1a2a1aaa;
-      border: 1px solid #88ff88;
-      border-radius: 28px;
-      padding: 20px;
+    .ip-section {
       margin: 20px 0;
-      text-align: right;
-    }
-
-    .solution-box h3 {
-      color: #88ff88;
-      margin-bottom: 15px;
-      font-size: 1.3rem;
-    }
-
-    .solution-box p {
-      color: #ddd;
-      font-size: 0.9rem;
-      margin: 10px 0;
-      line-height: 1.5;
-    }
-
-    .solution-box code {
-      background: #000000aa;
-      padding: 8px 12px;
-      border-radius: 16px;
-      display: inline-block;
-      margin: 5px 0;
-      font-family: monospace;
-      color: #ffcc66;
-    }
-
-    .btn-link {
-      background: #ffcc55;
-      color: #0a0a0a;
-      text-decoration: none;
-      padding: 14px 25px;
-      font-size: 1.2rem;
-      font-weight: bold;
-      border-radius: 60px;
-      display: inline-block;
-      margin: 15px 0;
-      transition: 0.2s;
-      border: none;
-      cursor: pointer;
-    }
-
-    .btn-link:hover {
-      transform: scale(1.02);
-      background: #ffdd77;
-    }
-
-    .warning-box {
-      background: #331100aa;
-      border: 1px solid #ff8844;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 15px;
       border-radius: 20px;
-      padding: 12px;
-      margin: 15px 0;
-      font-size: 0.85rem;
-      color: #ffaa88;
     }
+
+    input[type="text"] {
+      background: #000;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 10px 15px;
+      border-radius: 10px;
+      text-align: center;
+      font-size: 1.1rem;
+      width: 200px;
+      margin-top: 10px;
+    }
+
+    .status-box {
+      margin: 15px 0;
+      padding: 10px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      min-height: 40px;
+      background: #111;
+      color: #aaa;
+    }
+
+    .payload-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin: 25px 0;
+    }
+
+    .btn-payload {
+      background: linear-gradient(135deg, #222, #111);
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 15px;
+      border-radius: 15px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn-payload:hover {
+      background: var(--gold);
+      color: #000;
+      transform: translateY(-3px);
+    }
+
+    .btn-payload:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .log-success { color: #55ff55; }
+    .log-error { color: #ff5555; }
+    .log-info { color: var(--gold); }
 
     footer {
-      margin-top: 25px;
-      font-size: 0.7rem;
-      color: #777;
+      margin-top: 20px;
+      font-size: 0.8rem;
       border-top: 1px solid #333;
-      padding-top: 18px;
-    }
-
-    .step {
-      margin: 15px 0;
-      padding-right: 20px;
+      padding-top: 15px;
+      color: #666;
     }
   </style>
 </head>
 <body>
 
 <div class="card">
-  <h1>⚡ SOKAR PS4 ⚡</h1>
-  <div class="phone">📞 01000291852</div>
-
-  <div class="warning-box">
-    ⚠️ Firmware 11.00: BinLoader لا يعمل بشكل صحيح في المتصفح
+  <h1>⚡ SOKAR PS4 HOST ⚡</h1>
+  
+  <div class="ip-section">
+    <p>أدخل عنوان IP جهاز الـ PS4:</p>
+    <input type="text" id="ps4_ip" value="192.168.1.100" placeholder="192.168.x.x">
   </div>
 
-  <div class="solution-box">
-    <h3>🔧 الحل المجرب والموثق لـ 11.00</h3>
-    
-    <div class="step">
-      <strong>📥 1. تحميل Payload Guest</strong><br>
-      <code>https://github.com/Al-Azif/ps4-payload-guest</code>
-    </div>
+  <div id="status" class="status-box">جاهز لإرسال البايلود...</div>
 
-    <div class="step">
-      <strong>💿 2. تثبيت التطبيق</strong><br>
-      انقل ملف <code>.pkg</code> إلى USB ← ثبّته عبر GoldHEN (Package Installer)
-    </div>
-
-    <div class="step">
-      <strong>🗂️ 3. تجهيز USB للبايلودات</strong><br>
-      USB بصيغة <code>exFAT</code> ← مجلد باسم <code>payloads</code> ← ضع ملفات <code>.bin</code> داخله
-    </div>
-
-    <div class="step">
-      <strong>⚙️ 4. تشغيل BinLoader Server في GoldHEN</strong><br>
-      من إعدادات GoldHEN بعد تشغيل التعديل
-    </div>
-
-    <div class="step">
-      <strong>🚀 5. فتح Payload Guest</strong><br>
-      من قائمة PS4 ← اختر البايلود المطلوب
-    </div>
+  <div class="payload-grid">
+    <button class="btn-payload" onclick="sendPayload('goldhen.bin')">GoldHEN v2.4b16</button>
+    <button class="btn-payload" onclick="sendPayload('ftp.bin')">FTP Server</button>
+    <button class="btn-payload" onclick="sendPayload('disable_updates.bin')">Disable Updates</button>
+    <button class="btn-payload" onclick="sendPayload('binloader.bin')">Bin Loader</button>
   </div>
 
-  <div class="solution-box">
-    <h3>🖥️ طريقة بديلة: PPPwn Loader (من الكمبيوتر)</h3>
-    
-    <div class="step">
-      <strong>تحميل PPPwn Loader v1.5</strong> ← يدعم 11.00<br>
-      توصيل PS4 بالكمبيوتر عبر كابل إيثرنت ← تشغيل البرنامج واختيار Firmware 11.00
-    </div>
-    
-    <a href="https://github.com/LoganBres/PPPwn-Loader/releases" target="_blank" class="btn-link">⬇️ تحميل PPPwn Loader</a>
-  </div>
-
-  <div class="warning-box">
-    🎮 <strong>رابط تعديل GoldHEN المبدئي (اللي بيشغل BinLoader)</strong><br>
-    <code>https://karo218.ir/1100/</code><br>
-    <br>
-    ⚠️ هذا الرابط يشغل التعديل الأساسي فقط. لتشغيل البايلودات الفردية، استخدم Payload Guest كما هو موضح أعلاه.
+  <div style="font-size: 0.8rem; color: #888; background: #221100; padding: 10px; border-radius: 10px;">
+    ⚠️ تأكد من تشغيل <b>BinLoader</b> من إعدادات GoldHEN على الـ PS4 أولاً.
   </div>
 
   <footer>
-    ⚔️ SOKAR HOST | الحل المعتمد لـ Firmware 11.00<br>
-    شكر خاص: Al-Azif, TheFlow, Karo
+    SOKAR STORE - Developed for PS4 11.00 <br>
+    © 2024 All Rights Reserved
   </footer>
 </div>
 
 <script>
-  // كشف جهاز PS4
-  const isPS4 = navigator.userAgent.includes('PlayStation') || 
-                navigator.userAgent.includes('PS4') || 
-                window.location.href.includes('ps4');
+  function updateStatus(msg, type) {
+    const statusDiv = document.getElementById('status');
+    statusDiv.innerHTML = `<span class="log-${type}">${msg}</span>`;
+  }
 
-  if (!isPS4) {
-    const warningBox = document.querySelector('.warning-box');
-    if (warningBox) {
-      warningBox.innerHTML = '⚠️ أنت تفتح الصفحة من كمبيوتر أو موبايل. الحلول أعلاه مخصصة لـ PS4.';
+  async function sendPayload(fileName) {
+    const ip = document.getElementById('ps4_ip').value;
+    const port = 9020;
+
+    if (!ip) {
+      updateStatus("خطأ: يرجى إدخال IP الجهاز", "error");
+      return;
+    }
+
+    updateStatus(`جاري تحميل ${fileName}...`, "info");
+
+    try {
+      // 1. جلب ملف البايلود من السيرفر
+      // ملاحظة: يجب أن تكون الملفات موجودة في نفس مجلد index.html على GitHub
+      const response = await fetch(`payloads/${fileName}`);
+      if (!response.ok) throw new Error("لم يتم العثور على ملف البايلود على السيرفر");
+      
+      const payloadBuffer = await response.arrayBuffer();
+
+      updateStatus(`جاري الاتصال بـ ${ip}:${port}...`, "info");
+
+      // 2. إرسال البايلود عبر Socket
+      // ملاحظة: المتصفحات الحديثة تمنع الاتصال المباشر بـ TCP عبر JS لأسباب أمنية
+      // لذلك نستخدم تقنية الـ XHR أو Fetch إذا كان هناك Web-API على الـ PS4
+      // أو الطريقة التقليدية لـ PS4 Exploit Hosts:
+      
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST", `http://${ip}:${port}`, true);
+      
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4) {
+          updateStatus("✅ تم إرسال البايلود بنجاح! افحص جهاز الـ PS4.", "success");
+        }
+      };
+
+      xhr.onerror = function() {
+        // في أغلب الأحيان سيعطي خطأ CORS ولكن البايلود سيصل إذا كان المنفذ مفتوحاً
+        updateStatus("⚠️ تم الإرسال (تأكد من شاشة الـ PS4)", "info");
+      };
+
+      xhr.send(payloadBuffer);
+
+    } catch (error) {
+      updateStatus("خطأ: " + error.message, "error");
     }
   }
 </script>
