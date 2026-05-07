@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SOKAR PS4 - Multi Exploit Host</title>
+  <title>SOKAR PS4 | Karo Host 11.00</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      background: radial-gradient(circle at 30% 10%, #0a0f1a, #020408);
+      background: radial-gradient(circle at 20% 20%, #0a0f1a, #010101);
       font-family: 'Segoe UI', system-ui;
       display: flex;
       justify-content: center;
@@ -16,15 +16,15 @@
       padding: 20px;
     }
     .card {
-      max-width: 700px;
+      max-width: 550px;
       width: 100%;
       background: rgba(0,0,0,0.88);
       backdrop-filter: blur(16px);
       border-radius: 56px;
-      padding: 40px 35px;
+      padding: 40px 30px;
       text-align: center;
       border: 2px solid #ffcc55;
-      box-shadow: 0 25px 40px rgba(0,0,0,0.5);
+      box-shadow: 0 25px 40px rgba(0,0,0,0.6);
     }
     h1 {
       font-size: 2.5rem;
@@ -32,8 +32,7 @@
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      margin-bottom: 15px;
-      letter-spacing: 2px;
+      margin-bottom: 10px;
     }
     .phone {
       background: linear-gradient(135deg, #ffcc66, #ffaa33);
@@ -43,40 +42,30 @@
       font-size: 1.2rem;
       font-weight: bold;
       color: #0a0a0a;
-      margin: 15px 0 20px;
-      font-family: monospace;
-    }
-    .btn-group {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-      margin: 30px 0 25px;
+      margin: 15px 0;
     }
     .exploit-btn {
-      background: #1f2a1f;
-      border: 2px solid #ffcc55;
-      color: #ffcc55;
-      padding: 16px 20px;
-      font-size: 1.3rem;
+      background: #ffcc55;
+      color: #0a0a0a;
+      border: none;
+      padding: 18px 30px;
+      font-size: 1.6rem;
       font-weight: bold;
       border-radius: 60px;
       cursor: pointer;
-      transition: all 0.2s ease;
-      text-align: center;
+      margin: 25px 0;
       width: 100%;
+      transition: 0.2s;
     }
     .exploit-btn:hover {
-      background: #ffcc55;
-      color: #0a0a0a;
-      transform: scale(1.01);
-      box-shadow: 0 0 15px #ffaa33;
+      transform: scale(1.02);
+      background: #ffdd77;
     }
-    .warning-box {
-      background: #aa331122;
-      border: 1px solid #ffaa55;
+    .info {
+      background: #00000066;
       border-radius: 20px;
       padding: 12px;
-      margin: 20px 0;
+      margin: 15px 0;
       font-size: 0.8rem;
       color: #ffcc88;
     }
@@ -84,8 +73,6 @@
       margin-top: 20px;
       font-size: 0.7rem;
       color: #666;
-      border-top: 1px solid #333;
-      padding-top: 18px;
     }
   </style>
 </head>
@@ -94,49 +81,43 @@
   <h1>⚡ SOKAR PS4 ⚡</h1>
   <div class="phone">📞 01000291852</div>
   
-  <div class="warning-box">
-    ✅ جهاز PS4 تم اكتشافه - اختر أي رابط من الثلاثة
+  <div class="info">
+    🎮 Firmware 11.00 | تعديل من غير فلاشة
   </div>
   
-  <div class="btn-group">
-    <button class="exploit-btn" data-url="https://chefkeks.online/PS4/900/">1️⃣ رابط Chefkeks (الأساسي)</button>
-    <button class="exploit-btn" data-url="https://karoooo.com/900/">2️⃣ رابط Karoooo (البديل)</button>
-    <button class="exploit-btn" data-url="https://karo218.ir/900/">3️⃣ رابط Karo218 (البديل الثاني)</button>
+  <button class="exploit-btn" id="exploitBtn">🔥 تشغيل Karo 11.00 🔥</button>
+  
+  <div class="info">
+    ✅ بعد الضغط، هتتحول لـ Karo Host 11.00<br>
+    ✅ استنى 20 ثانية – الجهاز هيتعدل مباشرة
   </div>
   
-  <div class="warning-box" id="pcWarning">
-    ⚠️ للأجهزة العادية: الأزرار مش هتشتغل هنا. لكن لو ظهرتلك رسالة "لا يمكن الاتصال بالخادم" على PS4، جرب باقي الأزرار.
-  </div>
-  
-  <footer>⚔️ SOKAR HOST | روابط متعددة لضمان التشغيل | افتح على PS4 Firmware 9.00/11.00</footer>
+  <footer>⚔️ SOKAR HOST | Power by Karo218.ir | Thanks: TheFlow, Al-Azif, Karo</footer>
 </div>
 
 <script>
-  // فحص الجهاز (لإظهار رسالة مناسبة)
+  const exploitBtn = document.getElementById('exploitBtn');
+  
+  // كشف الجهاز
   const isPS4 = navigator.userAgent.includes('PlayStation') || 
                 navigator.userAgent.includes('PS4') || 
                 window.location.href.includes('ps4');
   
-  const pcWarning = document.getElementById('pcWarning');
   if (!isPS4) {
-    pcWarning.innerHTML = '⚠️ أنت تفتح الموقع من كمبيوتر أو موبايل. الأزرار مش هتشتغل هنا. افتح نفس الرابط على متصفح PS4 عشان التعديل يشتغل.';
-    pcWarning.style.background = '#331100aa';
-    pcWarning.style.borderColor = '#ff8844';
-  } else {
-    pcWarning.innerHTML = '🎮 PS4 جاهز - اضغط على أي زر. لو جهازك Firmware 11.00، جرب الرابط التاني أو التالت';
-    pcWarning.style.background = '#00aa3311';
-    pcWarning.style.borderColor = '#88ffaa';
+    exploitBtn.innerText = '⚠️ افتح على PS4 عشان يشتغل';
+    exploitBtn.style.background = '#555';
+    exploitBtn.style.cursor = 'not-allowed';
+    exploitBtn.disabled = true;
   }
   
-  // ربط الأزرار
-  document.querySelectorAll('.exploit-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      if (!isPS4) return;
-      const url = btn.getAttribute('data-url');
-      btn.innerText = '⏳ جاري التحويل...';
-      btn.style.opacity = '0.7';
-      window.location.href = url;
-    });
+  exploitBtn.addEventListener('click', () => {
+    if (!isPS4) return;
+    
+    exploitBtn.innerText = '⏳ جاري التحويل إلى Karo...';
+    exploitBtn.disabled = true;
+    
+    // الرابط المباشر لـ Karo 11.00 (اللي انت عارفه وشغال)
+    window.location.href = 'https://karo218.ir/1100/';
   });
 </script>
 </body>
