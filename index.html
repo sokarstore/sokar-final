@@ -7,210 +7,174 @@
   <style>
     :root {
       --gold: #ffcc55;
-      --blue: #0072ce;
-      --glass: rgba(0, 0, 0, 0.85);
+      --glass: rgba(0, 0, 0, 0.88);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      /* استخدام الصورة كخلفية كاملة */
       background: url('sokar-logo.png') no-repeat center center fixed;
       background-size: cover;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Segoe UI', system-ui, sans-serif;
       color: white;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      overflow-x: hidden;
     }
 
-    /* طبقة تعتيم فوق الصورة لضمان وضوح الكلام */
     body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      z-index: -1;
+      content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.7); z-index: -1;
     }
 
-    header {
-      text-align: center;
-      padding: 30px;
-      width: 100%;
-    }
+    header { text-align: center; padding: 20px; }
+    .brand-title { font-size: 2.5rem; font-weight: 900; color: var(--gold); text-shadow: 2px 2px 10px #000; }
 
-    .brand-title {
-      font-size: 3rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 5px;
-      background: linear-gradient(to bottom, #fff, var(--gold));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 5px 15px rgba(0,0,0,0.5);
-      margin-bottom: 5px;
-    }
-
-    .phone-bar {
+    .ip-box {
       background: var(--gold);
+      padding: 15px;
+      border-radius: 20px;
+      margin: 10px 0;
       color: #000;
-      padding: 5px 20px;
-      border-radius: 50px;
       font-weight: bold;
-      display: inline-block;
-      margin-top: 10px;
-      box-shadow: 0 0 20px rgba(255, 204, 85, 0.4);
+      text-align: center;
+    }
+
+    .ip-box input {
+      padding: 8px;
+      border-radius: 10px;
+      border: none;
+      text-align: center;
+      font-size: 1.1rem;
+      font-weight: bold;
+      width: 160px;
     }
 
     .container {
-      max-width: 1000px;
+      max-width: 900px;
       width: 95%;
       background: var(--glass);
       backdrop-filter: blur(15px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid var(--gold);
       border-radius: 30px;
-      padding: 30px;
-      margin-bottom: 50px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+      padding: 25px;
+      margin-bottom: 30px;
     }
 
     .status-area {
       text-align: center;
-      font-size: 1.2rem;
-      margin-bottom: 25px;
-      padding: 15px;
-      border-bottom: 1px solid #333;
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      padding: 12px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 15px;
       color: var(--gold);
+      min-height: 50px;
     }
 
-    /* تقسيم البايلودات لمجموعات مثل صفحة PS4Idea */
-    .section-title {
-      color: #fff;
-      border-right: 4px solid var(--gold);
-      padding-right: 15px;
-      margin: 20px 0;
-      font-size: 1.4rem;
-    }
+    .section-title { border-right: 4px solid var(--gold); padding-right: 15px; margin: 20px 0; font-size: 1.2rem; }
 
     .grid-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 15px;
-      margin-bottom: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
     }
 
     .btn {
-      background: linear-gradient(145deg, #1a1a1a, #0a0a0a);
+      background: #111;
       border: 1px solid #444;
       color: white;
-      padding: 18px 10px;
+      padding: 15px 5px;
       border-radius: 15px;
       cursor: pointer;
-      font-size: 1rem;
       font-weight: bold;
-      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
+      transition: 0.2s;
     }
 
-    .btn:hover {
-      border-color: var(--gold);
-      transform: scale(1.05);
+    /* تأثير عند الضغط */
+    .btn:active {
+      transform: scale(0.95);
       background: var(--gold);
       color: #000;
-      box-shadow: 0 0 20px rgba(255, 204, 85, 0.3);
     }
 
-    .btn-goldhen {
-      border: 2px solid var(--gold);
-      background: rgba(255, 204, 85, 0.1);
-    }
+    .btn:hover { border-color: var(--gold); }
 
-    .info-footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-      color: #888;
-      width: 100%;
-    }
+    .btn-goldhen { border: 2px solid var(--gold); background: rgba(255, 204, 85, 0.1); }
 
-    /* للموبايل */
-    @media (max-width: 600px) {
-      .brand-title { font-size: 2rem; }
-      .grid-container { grid-template-columns: repeat(2, 1fr); }
-    }
+    .log-success { color: #00ff00; }
+    .log-error { color: #ff3333; }
   </style>
 </head>
 <body>
 
   <header>
     <div class="brand-title">PS4Sokar</div>
-    <div class="phone-bar">📞 01000291852</div>
+    <div class="ip-box">
+      أدخل IP الـ PS4: 
+      <input type="text" id="ps4_ip" value="192.168.1.100">
+    </div>
   </header>
 
   <div class="container">
-    <div id="status" class="status-area">إختر النسخة المطلوبة لبدء التعديل...</div>
+    <div id="status" class="status-area">جاهز.. تأكد من فتح BinLoader في جهازك أولاً</div>
 
-    <h2 class="section-title">إصدارات GoldHEN</h2>
+    <h2 class="section-title">إصدارات GoldHEN (11.00)</h2>
     <div class="grid-container">
-      <button class="btn btn-goldhen" onclick="loadPayload('goldhen_2.4b16.bin')">GoldHEN v2.4b16</button>
-      <button class="btn btn-goldhen" onclick="loadPayload('goldhen_2.3.bin')">GoldHEN v2.3</button>
-      <button class="btn btn-goldhen" onclick="loadPayload('goldhen_2.2.4.bin')">GoldHEN v2.2.4</button>
+      <button class="btn btn-goldhen" onclick="sendPayload('goldhen_2.4b16.bin')">GoldHEN v2.4b16</button>
+      <button class="btn btn-goldhen" onclick="sendPayload('goldhen_2.3.bin')">GoldHEN v2.3</button>
     </div>
 
-    <h2 class="section-title">أدوات النظام (System Tools)</h2>
+    <h2 class="section-title">أدوات النظام</h2>
     <div class="grid-container">
-      <button class="btn" onclick="loadPayload('ftp.bin')">FTP Server</button>
-      <button class="btn" onclick="loadPayload('binloader.bin')">Bin Loader</button>
-      <button class="btn" onclick="loadPayload('app2usb.bin')">App2USB</button>
-      <button class="btn" onclick="loadPayload('disable_updates.bin')">إيقاف التحديثات</button>
-      <button class="btn" onclick="loadPayload('enable_updates.bin')">تفعيل التحديثات</button>
-    </div>
-
-    <h2 class="section-title">أدوات متقدمة (Advanced)</h2>
-    <div class="grid-container">
-      <button class="btn" onclick="loadPayload('todex.bin')">To-DEX</button>
-      <button class="btn" onclick="loadPayload('webrte.bin')">WebRTE</button>
-      <button class="btn" onclick="loadPayload('ps4debug.bin')">PS4Debug</button>
-      <button class="btn" onclick="loadPayload('history_blocker.bin')">History Blocker</button>
-      <button class="btn" onclick="loadPayload('backup.bin')">DB Backup</button>
+      <button class="btn" onclick="sendPayload('ftp.bin')">تشغيل FTP</button>
+      <button class="btn" onclick="sendPayload('disable_updates.bin')">إيقاف التحديثات</button>
+      <button class="btn" onclick="sendPayload('app2usb.bin')">App2USB</button>
+      <button class="btn" onclick="sendPayload('db_backup.bin')">نسخة احتياطية</button>
     </div>
   </div>
 
-  <footer class="info-footer">
-    PS4Sokar Host - Created with ⚡ for the PS4 Community <br>
-    Support: 01000291852 | Special Thanks to: Al-Azif, Karo, Sistro
-  </footer>
-
   <script>
-    // وظيفة محاكاة تحميل البايلود كما في صفحة 900
-    function loadPayload(name) {
-      const status = document.getElementById('status');
-      status.innerHTML = `<span style="color: #fff;">جاري تحميل: </span> ${name} ...`;
-      
-      // هنا تضع كود الإرسال الفعلي (الذي طورناه سابقاً)
-      // للتبسيط الآن سنظهر رسالة نجاح بعد ثانيتين
-      setTimeout(() => {
-        status.innerHTML = `✅ تم تفعيل <span style="color: #fff;">${name}</span> بنجاح!`;
-      }, 2000);
+    function updateStatus(msg, isError = false) {
+      const statusDiv = document.getElementById('status');
+      statusDiv.innerHTML = msg;
+      statusDiv.className = isError ? "status-area log-error" : "status-area log-success";
     }
 
-    // كشف التخزين المؤقت (Offline Cache)
-    window.onload = function() {
-      if (window.applicationCache) {
-        window.applicationCache.addEventListener('updateready', function() {
-          if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
-            window.location.reload();
-          }
-        });
-      }
-    };
-  </script>
+    async function sendPayload(fileName) {
+      const ip = document.getElementById('ps4_ip').value;
+      const port = 9020; // المنفذ الافتراضي لـ BinLoader
 
+      updateStatus(`جاري محاولة إرسال ${fileName}...`);
+
+      try {
+        // ملاحظة: يجب أن تكون ملفات الـ .bin موجودة فعلياً في مجلد payloads على السيرفر
+        const response = await fetch(`payloads/${fileName}`);
+        if (!response.ok) throw new Error("الملف غير موجود على السيرفر!");
+        
+        const buffer = await response.arrayBuffer();
+
+        // محاكاة إرسال البيانات للجهاز
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", `http://${ip}:${port}`, true);
+        
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState == 4) {
+            updateStatus(`✅ تم إرسال ${fileName} بنجاح! راقب شاشة الـ PS4.`);
+          }
+        };
+
+        xhr.onerror = function() {
+          updateStatus("❌ فشل الاتصال. تأكد من IP الجهاز ومن تفعيل BinLoader.", true);
+        };
+
+        xhr.send(buffer);
+
+      } catch (err) {
+        updateStatus("خطأ: " + err.message, true);
+      }
+    }
+  </script>
 </body>
 </html>
